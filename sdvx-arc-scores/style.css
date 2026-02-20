@@ -28,7 +28,7 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 95.25%;
     padding: 8px;
     border-radius: 5px;
     border: none;
@@ -92,4 +92,5 @@ button:hover {
 
 .hidden {
     display: none;
+
 }
