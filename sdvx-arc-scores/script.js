@@ -22,33 +22,30 @@ function calculate() {
     noteCount = n;
     targetScore = target;
 
-    criticalValue = Math.floor(MAX_SCORE / n);
-    nearValue = Math.floor(criticalValue / 2);
+    criticalValue = MAX_SCORE / noteCount;
+    nearValue     = MAX_SCORE / (2 * noteCount);
 
-    const fullCriticalScore = n * criticalValue;
-
-    if (fullCriticalScore < targetScore) {
-        document.getElementById("result").innerText = "해당 점수 달성 불가";
-        return;
-    }
-
-    const requiredLoss = fullCriticalScore - targetScore;
+    const requiredLoss = MAX_SCORE - targetScore;
 
     let best = null;
 
-    for (let near = 0; near <= n; near++) {
-        for (let error = 0; error + near <= n; error++) {
+    for (let error = 0; error <= noteCount; error++) {
+        for (let near = 0; near + error <= noteCount; near++) {
 
-            const loss =
-                error * criticalValue +
-                near * (criticalValue - nearValue);
+            const loss = criticalValue * (error + near / 2);
 
-            if (loss < requiredLoss) continue;
+            const distance = Math.abs(loss - requiredLoss);
 
-            const imbalance = Math.abs(error - near / 2);
+            const imbalance = Math.abs(
+                (error * criticalValue) -
+                (near  * criticalValue / 2)
+            );
 
-            if (!best || imbalance < best.imbalance) {
-                best = { error, near, imbalance };
+            if (!best ||
+                distance < best.distance ||
+                (Math.abs(distance - best.distance) < 1e-9 && imbalance < best.imbalance)
+            ) {
+                best = { error, near, distance, imbalance };
             }
         }
     }
