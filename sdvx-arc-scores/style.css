@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #1b1b1b;
+    padding: 30px;
+    border-radius: 10px;
+    width: 340px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    color: #aaa;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background: #2a2a2a;
+    color: white;
+}
+
+button {
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #444;
+}
+
+.main-btn {
+    width: 100%;
+    background: #4c8bf5;
+    margin-top: 10px;
+}
+
+.preset-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.controls {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+    font-size: 18px;
+}
+
+.row span {
+    width: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.score-display {
+    margin-top: 10px;
+    text-align: center;
+    color: #4c8bf5;
+}
+
+.hidden {
+    display: none;
+}
