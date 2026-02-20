@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>SDVX / Arcaea Scores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>SDVX / Arcaea Scores</h1>
+
+    <div class="input-group">
+        <label>CHAIN/RECALL</label>
+        <input type="number" id="noteCount" placeholder="ex) 1200">
+    </div>
+
+    <div class="input-group">
+        <label>목표 점수</label>
+        <input type="number" id="targetScore" placeholder="ex) 9900000">
+    </div>
+
+    <div class="preset-buttons">
+        <button onclick="setScore(9990000)">999</button>
+        <button onclick="setScore(9950000)">995</button>
+        <button onclick="setScore(9900000)">990</button>
+        <button onclick="setScore(9800000)">980</button>
+        <button onclick="setScore(9700000)">970</button>
+        <button onclick="setScore(9500000)">950</button>
+    </div>
+
+    <button class="main-btn" onclick="calculate()">계산</button>
+
+    <div id="controls" class="controls hidden">
+        <div class="row">
+            <label>NEAR/FAR</label>
+            <div>
+                <button onclick="changeNear(-2)">&lt;</button>
+                <span id="nearValue">0</span>
+                <button onclick="changeNear(2)">&gt;</button>
+            </div>
+        </div>
+        <div class="row">
+            <label>ERROR/LOST</label>
+            <div>
+                <button onclick="changeError(-1)">&lt;</button>
+                <span id="errorValue">0</span>
+                <button onclick="changeError(1)">&gt;</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="result" class="result"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
